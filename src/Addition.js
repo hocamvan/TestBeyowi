@@ -4,23 +4,16 @@ export default class Addition extends Component {
     state = {
         valeur1: 0,
         valeur2: 0,
-        add: 0,
     };
     handleOnChange = (e) => {
         e.preventDefault();
         this.setState({
             [e.target.name]: Number(e.target.value),
-            add: Number(this.state.add) + Number(e.target.value)
         })
     };
-    // componentDidUpdate(prevState) {
-    //     if (this.state.add !== prevState.add && Number(this.state.add) !== 0) {
-    //         this.setState({
-    //             add: 0
-    //         })
-    //     }
-    // };
+
     render() {
+        const add =  Number(this.state.valeur1) + Number(this.state.valeur2)
         return (
             <div>
                 <input
@@ -36,7 +29,7 @@ export default class Addition extends Component {
                     valeur={this.state.valeur2}
                     onChange={this.handleOnChange}
                 ></input>
-                <p>Le résultat de l'addition est {this.state.add} </p>
+                <p>Le résultat de l'addition est {add} </p>
             </div>
         )
     }
